@@ -1,0 +1,44 @@
+diff -up libthai-0.1.12/libdatrie-0.2.2/datrie/Makefile.am.static-build libthai-0.1.12/libdatrie-0.2.2/datrie/Makefile.am
+--- libthai-0.1.12/libdatrie-0.2.2/datrie/Makefile.am.static-build	2009-04-13 05:18:20.000000000 -0400
++++ libthai-0.1.12/libdatrie-0.2.2/datrie/Makefile.am	2009-06-27 17:58:06.813631702 -0400
+@@ -10,7 +10,7 @@ EXTRA_DIST = libdatrie.map libdatrie.def
+ 
+ INCLUDES = -I$(top_srcdir)
+ 
+-lib_LTLIBRARIES = libdatrie.la
++noinst_LTLIBRARIES = libdatrie.la
+ 
+ libdatrie_la_SOURCES =	\
+ 	typedefs.h	\
+diff -up libthai-0.1.12/libthai.pc.in.static-build libthai-0.1.12/libthai.pc.in
+--- libthai-0.1.12/libthai.pc.in.static-build	2009-03-31 00:25:23.000000000 -0400
++++ libthai-0.1.12/libthai.pc.in	2009-06-27 17:58:06.814631492 -0400
+@@ -6,6 +6,5 @@ includedir=@includedir@
+ Name: libthai
+ Description: Thai support library
+ Version: @VERSION@
+-Requires.private: datrie-0.2
+ Libs: -L${libdir} -lthai
+ Cflags: -I${includedir}
+diff -up libthai-0.1.12/src/Makefile.am.static-build libthai-0.1.12/src/Makefile.am
+--- libthai-0.1.12/src/Makefile.am.static-build	2009-06-07 03:20:15.000000000 -0400
++++ libthai-0.1.12/src/Makefile.am	2009-06-27 17:59:20.060630864 -0400
+@@ -19,7 +19,8 @@ libthai_sublibs = \
+ 	$(top_builddir)/src/thwchar/libthwchar.la \
+ 	$(top_builddir)/src/thwctype/libthwctype.la \
+ 	$(top_builddir)/src/thwstr/libthwstr.la \
+-	$(top_builddir)/src/thwbrk/libthwbrk.la 
++	$(top_builddir)/src/thwbrk/libthwbrk.la \
++	$(DATRIE_LIBS)
+ 
+ if LD_HAS_VERSION_SCRIPT
+ EXPORTS_FLAGS = -Wl,-version-script -Wl,$(srcdir)/libthai.map
+diff -up libthai-0.1.12/src/thbrk/Makefile.am.static-build libthai-0.1.12/src/thbrk/Makefile.am
+--- libthai-0.1.12/src/thbrk/Makefile.am.static-build	2009-01-19 08:32:50.000000000 -0500
++++ libthai-0.1.12/src/thbrk/Makefile.am	2009-06-27 17:58:06.812632123 -0400
+@@ -16,5 +16,4 @@ libthbrk_la_SOURCES =	\
+ 	brk-maximal.c	\
+ 	brk-maximal.h
+ 
+-libthbrk_la_LIBADD = $(DATRIE_LIBS)
+ 

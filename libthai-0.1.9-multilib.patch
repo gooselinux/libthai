@@ -1,0 +1,24 @@
+diff -up libthai-0.1.9/doc/no_date_footer.html.multilib libthai-0.1.9/doc/no_date_footer.html
+--- libthai-0.1.9/doc/no_date_footer.html.multilib	2008-03-17 13:32:26.000000000 -0400
++++ libthai-0.1.9/doc/no_date_footer.html	2008-03-17 13:33:54.000000000 -0400
+@@ -0,0 +1,8 @@
++<hr size="1"><address style="text-align: right;"><small>
++Generated for $projectname by&nbsp;<a href="http://www.doxygen.org/
++index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 
++$doxygenversion</small></address>
++</body>
++</html>
++
++
+diff -up libthai-0.1.9/doc/Doxyfile.in.multilib libthai-0.1.9/doc/Doxyfile.in
+--- libthai-0.1.9/doc/Doxyfile.in.multilib	2008-03-17 13:34:06.000000000 -0400
++++ libthai-0.1.9/doc/Doxyfile.in	2008-03-17 13:34:16.000000000 -0400
+@@ -162,7 +162,7 @@ GENERATE_HTML          = YES
+ HTML_OUTPUT            = html
+ HTML_FILE_EXTENSION    = .html
+ HTML_HEADER            = 
+-HTML_FOOTER            = 
++HTML_FOOTER            = no_date_footer.html
+ HTML_STYLESHEET        = 
+ HTML_ALIGN_MEMBERS     = YES
+ GENERATE_HTMLHELP      = NO
